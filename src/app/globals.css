@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-cairo), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --background: #f4f6f8;
+  --foreground: #0f172a;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-cairo), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* الحقول الرقمية تُعرض دائماً بالأرقام الغربية وبمحاذاة صحيحة */
+input[type="number"] {
+  direction: ltr;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* منع التكبير التلقائي في آيفون عند الكتابة داخل الحقول */
+@media (max-width: 640px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
